@@ -1,0 +1,138 @@
+@import './colors';
+@import './base';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: #26272e;
+  display: flex;
+  color: white;
+
+  .about {
+    width: 50vw;
+    height: 100vh;
+    padding: 4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .nav {
+      display: flex;
+      justify-content: space-between;
+
+      img {
+        width: 10em;
+      }
+      .links {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        a {
+          text-decoration: none;
+          margin-left: 2em;
+          color: white;
+          opacity: 0.8;
+
+          &:hover {
+            color: $green;
+            transition: 1s ease-in-out;
+          }
+        }
+      }
+    }
+    .text {
+      width: 70%;
+      .green {
+        font-size: 4.5em;
+        font-weight: 400;
+        font-family: 'Georgia', sans-serif;
+        color: $green;
+      }
+      h1 {
+        font-size: 4.5em;
+        font-weight: 400;
+        font-family: 'Georgia', sans-serif;
+      }
+      p {
+        font-size: 1.25em;
+        margin-top: 1em;
+        font-weight: 300;
+        line-height: 1.5em;
+      }
+      a {
+        color: $green;
+        font-size: 1.1em;
+        font-weight: 300;
+        text-decoration: none;
+      }
+    }
+    .footer {
+      span {
+        color: $grey;
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  .content {
+    width: 50vw;
+    background: #212228;
+    padding: 4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .url-input {
+      input {
+        text-indent: 30px;
+        background: $dark-grey;
+        height: 60px;
+        width: 100%;
+        border: none;
+        color: white;
+        padding: 1em;
+        border-radius: 6px;
+
+        &:focus {
+          outline: $green auto 1px;
+        }
+      }
+    }
+  }
+  .result {
+    width: 50vw;
+    background: #212228;
+    padding: 4em;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+
+    img {
+      width: auto;
+      height: 70%;
+      // object-fit: cover;
+      align-self: center;
+    }
+    p {
+      font-size: 1.3em;
+      text-align: center;
+    }
+  }
+}
+.btn {
+  height: 60px;
+  border: 1px solid $green;
+  background: transparent;
+  width: 100%;
+  color: $green;
+  margin: 1.5em 0;
+  border-radius: 6px;
+  cursor: pointer;
+  &:hover {
+    background: $background-color;
+  }
+}
+
+.green {
+  color: $green;
+}
