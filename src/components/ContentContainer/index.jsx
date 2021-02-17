@@ -19,6 +19,8 @@ const ContentContainer = ({ response, setResponse, preview, setPreview }) => {
   // const [allFiles, setAllFiles] = useState([]);
 
   const handleUpload = (files) => {
+    setLoading(true);
+
     const uploadedFiles = files.map((file) => ({
       file,
       id: uniqueId(),
