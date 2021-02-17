@@ -7,7 +7,9 @@ import logo from '../../assets/logo-imagible-03.svg';
 const Nav = () => {
   return (
     <div className="nav">
-      <img src={logo} alt="Imagible" />
+      <Link to="/">
+        <img src={logo} alt="Imagible" />
+      </Link>
       <div className="links">
         <Link to="/about" alt="about">
           About

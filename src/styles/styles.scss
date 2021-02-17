@@ -8,7 +8,7 @@
   display: flex;
   color: white;
 
-  .about {
+  .information {
     width: 50vw;
     height: 100vh;
     padding: 4em;
@@ -40,29 +40,53 @@
       }
     }
     .text {
-      width: 70%;
-      .green {
-        font-size: 4.5em;
+      width: 80%;
+      .green-title {
+        font-size: 3.5em;
         font-weight: 400;
         font-family: 'Georgia', sans-serif;
         color: $green;
       }
       h1 {
-        font-size: 4.5em;
+        font-size: 3.5em;
         font-weight: 400;
         font-family: 'Georgia', sans-serif;
       }
       p {
-        font-size: 1.25em;
+        font-size: 1.1em;
         margin-top: 1em;
-        font-weight: 300;
+        font-weight: 400;
         line-height: 1.5em;
+      }
+      .green-word {
+        font-size: 1em;
+        margin-top: 1em;
+        font-weight: 400;
+        line-height: 1.5em;
+        color: $green;
       }
       a {
         color: $green;
-        font-size: 1.1em;
-        font-weight: 300;
+        font-size: 1em;
+        font-weight: 400;
         text-decoration: none;
+      }
+      .buttons {
+        display: flex;
+        button {
+          height: 40px;
+          width: 200px;
+          border: 1px solid $light-grey;
+          background: transparent;
+          color: $light-grey;
+          margin: 1.5em 1em 0 0;
+          border-radius: 6px;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.7;
+            transition: 1s ease-in-out;
+          }
+        }
       }
     }
     .footer {
@@ -76,46 +100,106 @@
   .content {
     width: 50vw;
     background: #212228;
-    padding: 4em;
+    padding: 2em;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-
-    .url-input {
-      input {
-        text-indent: 30px;
-        background: $dark-grey;
-        height: 60px;
-        width: 100%;
-        border: none;
-        color: white;
-        padding: 1em;
-        border-radius: 6px;
-
-        &:focus {
-          outline: $green auto 1px;
+    .spinner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      svg {
+        color: $green;
+        font-size: 25px;
+      }
+      span {
+        color: $grey;
+        margin: 1em 0;
+      }
+    }
+    &-input {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      span {
+        text-align: center;
+        margin: 1.5em 0;
+        font-size: 1em;
+      }
+      .url-input {
+        input {
+          background: $dark-grey;
+          height: 60px;
+          width: 100%;
+          border: none;
+          color: white;
+          padding: 1em 2em;
+          border-bottom: solid 0.1px $grey;
+          &:focus {
+            outline: $green auto 1px;
+          }
         }
       }
     }
-  }
-  .result {
-    width: 50vw;
-    background: #212228;
-    padding: 4em;
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
-    justify-content: space-between;
+    &-result {
+      display: flex;
+      flex-direction: column;
+      align-content: space-between;
+      justify-content: space-around;
+      width: 50%;
+      .btn-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2.5em 0;
+        position: relative;
+        button {
+          background-color: transparent;
+          border: none;
+          outline: none;
+        }
+        button:focus {
+          border: none;
+        }
+        .copy:hover:after {
+          content: 'Copy to Clipboard';
+          position: absolute;
+          background-color: transparent;
+          padding: 0.5em;
+          top: -2.3em;
+          right: 3.5em;
+          border-radius: 6px;
+          color: $grey;
+        }
 
-    img {
-      width: auto;
-      height: 70%;
-      // object-fit: cover;
-      align-self: center;
-    }
-    p {
-      font-size: 1.3em;
-      text-align: center;
+        svg {
+          color: $green;
+          margin: 0 0.5em;
+          cursor: pointer;
+        }
+      }
+
+      img {
+        width: auto;
+        height: 80%;
+        // object-fit: cover;
+        align-self: center;
+      }
+      p {
+        font-size: 1em;
+        text-align: center;
+        margin-top: 2em;
+      }
+      span {
+        color: $grey;
+        text-align: center;
+      }
+      a,
+      :active {
+        color: $green;
+        text-decoration: none;
+      }
     }
   }
 }
@@ -130,6 +214,7 @@
   cursor: pointer;
   &:hover {
     background: $background-color;
+    transition: 1s ease-in-out;
   }
 }
 
