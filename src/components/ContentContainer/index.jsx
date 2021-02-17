@@ -50,14 +50,21 @@ const ContentContainer = ({ response, setResponse, preview, setPreview }) => {
     data.append('file', uploadedFile.file, uploadedFile.name);
 
     api
-      .post('posts', data, {
-        onUploadProgress: (e) => {
-          const progress = parseInt(Math.round((e.loaded * 100) / e.total));
-          updateFile(uploadedFile.id, {
-            progress,
-          });
+      .post(
+        'posts',
+        data,
+        {
+          headers: { 'Content-Type': 'application/json' },
         },
-      })
+        {
+          onUploadProgress: (e) => {
+            const progress = parseInt(Math.round((e.loaded * 100) / e.total));
+            updateFile(uploadedFile.id, {
+              progress,
+            });
+          },
+        }
+      )
       .then((response) => {
         updateFile(uploadedFile.id, {
           uploaded: true,
