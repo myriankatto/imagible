@@ -22,6 +22,11 @@ const InformationContainer = ({ response }) => {
           </p>
         </div>
       )}
+
+      <div className="mobile-text">
+        <h1>Generate a description for your picture</h1>
+        <p>Paste image URL or upload your image to generate a intelligent description.</p>
+      </div>
     </div>
   );
 };

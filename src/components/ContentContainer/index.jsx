@@ -143,7 +143,7 @@ const ContentContainer = ({ response, setResponse, preview, setPreview }) => {
   // }
 
   return (
-    <div className="content">
+    <div>
       {response && !loading ? (
         <Result response={response} preview={preview} />
       ) : loading ? (

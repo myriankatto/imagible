@@ -7,7 +7,9 @@
   background: #26272e;
   display: flex;
   color: white;
-
+  .mobile-menu {
+    display: none;
+  }
   .information {
     width: 50vw;
     height: 100vh;
@@ -15,10 +17,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     .nav {
       display: flex;
       justify-content: space-between;
-
       img {
         width: 10em;
       }
@@ -39,8 +41,12 @@
         }
       }
     }
-    .text {
-      width: 80%;
+
+    .mobile-text {
+      display: none;
+    }
+    .text,
+    .about {
       .green-title {
         font-size: 3.5em;
         font-weight: 400;
@@ -102,6 +108,8 @@
     background: #212228;
     padding: 2em;
     display: flex;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     .spinner {
       display: flex;
@@ -147,7 +155,9 @@
       flex-direction: column;
       align-content: space-between;
       justify-content: space-around;
-      width: 50%;
+      align-items: center;
+      justify-items: center;
+      width: 100%;
       .btn-container {
         display: flex;
         align-items: center;
@@ -166,11 +176,10 @@
           content: 'Copy to Clipboard';
           position: absolute;
           background-color: transparent;
-          padding: 0.5em;
-          top: -2.3em;
-          right: 3.5em;
-          border-radius: 6px;
+          top: -2.5em;
+          right: 0em;
           color: $grey;
+          font-size: 0.7em;
         }
 
         svg {
@@ -182,7 +191,7 @@
 
       img {
         width: auto;
-        height: 80%;
+        height: 60vh;
         // object-fit: cover;
         align-self: center;
       }
@@ -220,4 +229,115 @@
 
 .green {
   color: $green;
+}
+
+// mobile
+@media screen and (max-width: 667px) {
+  .container {
+    flex-direction: column;
+    .information {
+      width: 100vw;
+      height: auto;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .mobile-menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        position: absolute;
+        top: 2em;
+        width: 100vw;
+        padding: 0 1em;
+        img {
+          width: 7em;
+        }
+      }
+      .mobile-menu-container {
+        width: 100vw;
+        height: 30vh;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        top: 4.5em;
+        background-color: #26272e;
+        color: white;
+        box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
+        a {
+          text-decoration: none;
+          color: white;
+          margin: 0.5em 0;
+          font-size: 1em;
+        }
+      }
+
+      .nav,
+      .text,
+      .footer {
+        display: none;
+      }
+      .text {
+        display: none;
+      }
+      .mobile-text,
+      .about {
+        display: inline-block;
+        text-align: center;
+        padding: 2em;
+        margin-top: 4em;
+
+        h1 {
+          font-size: 1.8em;
+          font-weight: 400;
+          font-family: 'Georgia', sans-serif;
+        }
+        p {
+          font-size: 1em;
+          margin-top: 1em;
+          font-weight: 400;
+          line-height: 1.5em;
+        }
+      }
+    }
+    .content {
+      width: 100vw;
+      height: auto;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 1em;
+      &-input {
+        padding-bottom: 2em;
+      }
+
+      &-result {
+        width: 100%;
+        padding: 0;
+        padding-bottom: 2em;
+        .btn-container {
+          margin: 1.5em 0;
+          .copy:hover:after {
+            display: none;
+          }
+        }
+        p {
+          font-size: 0.8em;
+        }
+        img {
+          width: 70vw;
+          height: auto !important;
+        }
+        span {
+          font-size: 0.8em;
+        }
+        a {
+          font-size: 1em;
+        }
+      }
+    }
+  }
 }

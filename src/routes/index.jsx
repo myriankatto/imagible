@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import App from '../App';
-import About from '../pages/About';
+import Container from '../pages/About';
 
 export default function Routes() {
   const [response, setResponse] = useState('');
@@ -12,7 +12,7 @@ export default function Routes() {
     <Router>
       <Switch>
         <Route path="/about">
-          <About
+          <Container
             response={response}
             setResponse={setResponse}
             preview={preview}

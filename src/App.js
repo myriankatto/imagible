@@ -11,7 +11,7 @@ function App({ response, setResponse, preview, setPreview }) {
     <div className="container">
       <div className="information">
         <Nav />
-        <InformationContainer response={response}/>
+        <InformationContainer response={response} />
         <Footer />
       </div>
 
