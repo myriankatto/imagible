@@ -23,7 +23,6 @@ const Nav = () => {
           <Link to="/publications" alt="publications">
             Publications
           </Link>
-          <a href="/#">Open Source</a>
         </div>
       </div>
 

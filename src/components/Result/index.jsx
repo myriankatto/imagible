@@ -8,8 +8,12 @@ const Result = ({ response, preview }) => {
       <p>"{response}"</p>
 
       <div className="btn-container">
-        <Button className="copy" onClick={() => navigator.clipboard.writeText(response)}>
-          <Copy />
+        <Button
+          type="primary"
+          className="copy"
+          onClick={() => navigator.clipboard.writeText(response)}
+        >
+          Copy to Clipboard
         </Button>
       </div>
       <span>

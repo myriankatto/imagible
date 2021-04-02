@@ -11,22 +11,23 @@ const dragReject = css`
 export const DropContainer = styled.div.attrs({
   className: 'dropzone',
 })`
-  border: 0.5px dashed #6c6d80;
+  border: 0.5px dashed #065B36;
   border-radius: 6px;
   cursor: pointer;
   transition: height 0.2s ease;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1em 0;
+  padding: 6em 0;
+  width: 100%;
   ${(props) => props.isDragActive && dragActive};
   ${(props) => props.isDragReject && dragReject};
 `;
 
 const messageColors = {
-  default: '#999',
+  default: '#141417',
   error: '#e57878',
-  success: '#7fffd4',
+  success: '#065B36',
 };
 
 export const UploadMessage = styled.p`

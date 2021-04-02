@@ -10,6 +10,7 @@ import axios from 'axios';
 import api from '../../services/api';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
+import imageSVG from '../../assets/icon-paste.svg';
 
 const ContentContainer = ({ response, setResponse, preview, setPreview }) => {
   const [uploadedFiles, setUploadedFiles] = useState([]);
@@ -153,6 +154,7 @@ const ContentContainer = ({ response, setResponse, preview, setPreview }) => {
         </div>
       ) : (
         <div className="content-input">
+          <img src={imageSVG} alt="" />
           <URLInput
             response={response}
             url={url}
