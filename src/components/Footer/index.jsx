@@ -3,9 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <div className="footer">
-      <span>
-        This Beta version is running during testing - Project by Ana Batista and Myrian Katto.
-      </span>
+      <span>Beta v.1 - Learn about this project. </span>
     </div>
   );
 };

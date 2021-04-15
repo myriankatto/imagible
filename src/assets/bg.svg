@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="785" height="812" viewBox="0 0 785 812">
+    <defs>
+        <radialGradient id="8t2n50mvna" cx="50%" cy="-12.232%" r="112.323%" fx="50%" fy="-12.232%" gradientTransform="matrix(0 .95213 -.92247 0 .387 -.598)">
+            <stop offset=".057%" stop-color="#713CFF"/>
+            <stop offset="100%" stop-color="#6EDEFB"/>
+        </radialGradient>
+        <filter id="z5x0f0mzub" width="155.9%" height="153.2%" x="-27.9%" y="-26.6%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="50"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd" opacity=".38">
+        <g fill="url(#8t2n50mvna)" stroke="#979797" transform="translate(-71 -44)">
+            <ellipse cx="463.5" cy="450" filter="url(#z5x0f0mzub)" rx="268" ry="281.5"/>
+        </g>
+    </g>
+</svg>
