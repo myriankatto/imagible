@@ -7,7 +7,7 @@ import { DropContainer, UploadMessage } from './styles';
 function Upload({ onUpload } ) {
   const renderDragMessage = (isDragActive, isDragReject) => {
     if (!isDragActive) {
-      return <UploadMessage>Drop your files here or <span className="green"> upload images.</span></UploadMessage>;
+      return <UploadMessage>Drop your files here or <span className="color"> upload images.</span></UploadMessage>;
     }
 
     if (isDragReject) {

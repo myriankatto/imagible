@@ -3,35 +3,54 @@ import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { HamburgerCollapse } from 'react-animated-burgers';
 
-import logo from '../../assets/logo-imagible-03.svg';
+import logoDark from '../../assets/logo-imagible-dark.svg';
+import logoLight from '../../assets/logo-imagible-white.svg';
 
-const Nav = () => {
+import { Moon, Sun } from 'react-feather';
+
+const Nav = ({ theme, setTheme }) => {
   const [isActive, setIsActive] = useState(false);
 
   const toggleButton = useCallback(() => setIsActive((prevState) => !prevState), []);
-
   return (
     <>
-      <div className="nav">
+      <nav className="nav">
         <Link to="/">
-          <img src={logo} alt="Imagible" />
+          <img src={theme === 'dark' ? logoDark : logoLight} alt="Imagible" />
         </Link>
-        <div className="links">
-          <Link to="/about" alt="about">
-            About
-          </Link>
-          <Link to="/publications" alt="publications">
-            Publications
-          </Link>
-        </div>
-      </div>
 
-      <div className="mobile-menu">
+        <ul>
+          <li>
+            <Link to="/about" alt="about">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/resources" alt="resources">
+              Resources
+            </Link>
+          </li>
+          <li>
+            <a href="/" alt="Github">
+              GitHub
+            </a>
+          </li>
+          <div className="theme_icon">
+            {theme === 'dark' ? (
+              <Sun onClick={() => setTheme('light')} />
+            ) : (
+              <Moon onClick={() => setTheme('dark')} />
+            )}
+          </div>
+        </ul>
+      </nav>
+
+      <div className="mobile-nav">
         <Link to="/">
-          <img src={logo} alt="Imagible" />
+          <img src={theme === 'dark' ? logoDark : logoLight} alt="Imagible" />
         </Link>
         <HamburgerCollapse
-          buttonColor="#26272e"
+          buttonColor="transparent"
           barColor="white"
           buttonWidth={20}
           {...{ isActive, toggleButton }}

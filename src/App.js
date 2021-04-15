@@ -1,28 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import Home from './pages/Home';
+import About from './pages/About';
+import Resources from './pages/Resources';
+import NotFound404 from './pages/NotFound404';
+
 import './styles/styles.scss';
 
-import Nav from './components/Nav';
-import Footer from './components/Footer';
-import ContentContainer from './components/ContentContainer';
-import InformationContainer from './components/InformationContainer';
+function App() {
+  const [theme, setTheme] = useState('dark');
+  const [response, setResponse] = useState('');
+  const [preview, setPreview] = useState('');
 
-function App({ response, setResponse, preview, setPreview }) {
+  const props = { theme, setTheme, preview, setPreview, response, setResponse };
+
   return (
-    <div className="container">
-      <div className="information">
-        <Nav />
-        <InformationContainer response={response} />
-        <Footer />
-      </div>
-
-      <div className="content">
-        <ContentContainer
-          response={response}
-          setResponse={setResponse}
-          preview={preview}
-          setPreview={setPreview}
-        />
-      </div>
+    <div className={`app ${theme}`}>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home {...props} />
+          </Route>
+          <Route exact path="/about">
+            <About {...props} />
+          </Route>
+          <Route exact path="/resources">
+            <Resources {...props} />
+          </Route>
+          <Route>
+            <NotFound404 {...props} />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

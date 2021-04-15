@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const dragActive = css`
-  border-color: #78e5d5;
+  border-color: #5d3ca1;
 `;
 
 const dragReject = css`
@@ -11,15 +11,15 @@ const dragReject = css`
 export const DropContainer = styled.div.attrs({
   className: 'dropzone',
 })`
-  border: 0.5px dashed #065B36;
+  border: 0.5px dashed #5d3ca1;
   border-radius: 6px;
   cursor: pointer;
   transition: height 0.2s ease;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 6em 0;
-  width: 100%;
+  padding: 1em 0;
+  width: 30vw;
   ${(props) => props.isDragActive && dragActive};
   ${(props) => props.isDragReject && dragReject};
 `;

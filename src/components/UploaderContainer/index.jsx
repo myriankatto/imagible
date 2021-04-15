@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import URLInput from '../URLInput';
 import Upload from '../Upload';
 // import FileList from './components/FileList';
 import Result from '../Result';
@@ -10,12 +9,10 @@ import axios from 'axios';
 import api from '../../services/api';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import imageSVG from '../../assets/icon-paste.svg';
 
-const ContentContainer = ({ response, setResponse, preview, setPreview }) => {
+const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [url, setUrl] = useState('');
-  const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   // const [allFiles, setAllFiles] = useState([]);
 
@@ -109,11 +106,11 @@ const ContentContainer = ({ response, setResponse, preview, setPreview }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     ImageProcess(url);
+    setUrl('');
   };
 
   const handleChange = (e) => {
     e.preventDefault();
-    setVisible(true);
     setPreview(e.target.value);
     setUrl(e.target.value);
   };
@@ -144,39 +141,33 @@ const ContentContainer = ({ response, setResponse, preview, setPreview }) => {
   // }
 
   return (
-    <div>
-      {response && !loading ? (
-        <Result response={response} preview={preview} />
-      ) : loading ? (
-        <div className="spinner">
-          <Spin indicator={<LoadingOutlined />} />
-          <span>Processing image...</span>
-        </div>
-      ) : (
-        <div className="content-input">
-          <img src={imageSVG} alt="" />
-          <URLInput
-            response={response}
-            url={url}
-            handleSubmit={handleSubmit}
-            handleChange={handleChange}
-            visible={visible}
-          />
-          <span>
-            <em>or</em>
-          </span>
-          <Upload onUpload={handleUpload} />
-        </div>
-      )}
-      {/* 
-        {uploadedFiles.length && (
-            <FileList
-              files={uploadedFiles}
-              // onDelete={handleDelete}
-            />
-          )} */}
+    <div className="upload">
+      <div className="card">
+        {response && !loading ? (
+          <Result response={response} preview={preview} />
+        ) : loading ? (
+          <div className="spinner">
+            <Spin indicator={<LoadingOutlined />} />
+            <span>Processing image...</span>
+          </div>
+        ) : (
+          <div className="uploader">
+            <h4>Add your image</h4>
+            <p>Start generating smart descriptions</p>
+            <hr />
+            <input type="text" value={url} onChange={handleChange} placeholder="Paste image URL" />
+            <span>
+              <em>or</em>
+            </span>
+            <Upload onUpload={handleUpload} />
+            <button className="btn" onClick={handleSubmit}>
+              Generate description
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
-export default ContentContainer;
+export default UploaderContainer;
