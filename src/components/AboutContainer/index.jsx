@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutContainer = () => {
   return (
-    <div className="about">
+    <div className="text">
       <h1>About Imagible</h1>
       <p>
         <span className="green-word">Imagible</span> is a open source project born to create
@@ -32,10 +32,6 @@ const AboutContainer = () => {
         </a>{' '}
         or get in contact.
       </p>
-      <div className="buttons">
-        <button>Research</button>
-        <button>Github</button>
-      </div>
     </div>
   );
 };

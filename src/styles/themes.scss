@@ -1,17 +1,16 @@
 .light {
-  --theme-background: linear-gradient(
-    100deg,
-    rgba(233, 235, 240, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
+  --theme-background: linear-gradient(100deg, rgb(249, 249, 249) 0%, rgba(255, 255, 255, 1) 100%);
   --theme-text: #272a34;
   --theme-purple: #5d3ca1;
   --theme-grey: #6f6f6f;
+  --theme-primary: #eaecf1;
+
 }
 
 .dark {
-  --theme-background: linear-gradient(100deg, rgba(38, 39, 46, 1) 0%, rgba(70, 77, 99, 1) 100%);
+  --theme-background: linear-gradient(100deg, rgb(38, 39, 46) 0%, rgba(70, 77, 99, 1) 100%);
   --theme-text: #fff;
   --theme-purple: #a8abff;
   --theme-grey: #c4c4c4;
+  --theme-primary: #26272e;
 }
