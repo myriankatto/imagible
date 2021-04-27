@@ -31,7 +31,13 @@ const Nav = ({ theme, setTheme }) => {
             </Link>
           </li>
           <li>
-            <a href="/" alt="Github">
+            <a
+              href="https://github.com/myriankatto/imagible"
+              alt="Github"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {' '}
               GitHub
             </a>
           </li>
@@ -51,20 +57,42 @@ const Nav = ({ theme, setTheme }) => {
         </Link>
         <HamburgerCollapse
           buttonColor="transparent"
-          barColor="white"
+          barColor={theme === 'dark' ? '#eaecf1' : '#26272e'}
           buttonWidth={20}
           {...{ isActive, toggleButton }}
         />
       </div>
       {isActive && (
-        <div className="mobile-menu-container">
-          <Link to="/about" alt="about">
-            About
-          </Link>
-          <Link to="/publications" alt="publications">
-            Publications
-          </Link>
-          <a href="/#">Open Source</a>
+        <div className="mobile-nav-container">
+          <ul>
+            <li>
+              <Link to="/about" alt="about">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/resources" alt="resources">
+                Resources
+              </Link>
+            </li>
+            <li>
+              <a
+                href="https://github.com/myriankatto/imagible"
+                alt="Github"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+            </li>
+            <div className="theme_icon">
+              {theme === 'dark' ? (
+                <Sun onClick={() => setTheme('light')} />
+              ) : (
+                <Moon onClick={() => setTheme('dark')} />
+              )}
+            </div>
+          </ul>
         </div>
       )}
     </>

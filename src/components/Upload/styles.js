@@ -18,8 +18,9 @@ export const DropContainer = styled.div.attrs({
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1em 0;
-  width: 30vw;
+  padding: 1em;
+  width: 100%;
+  text-align: center;
   ${(props) => props.isDragActive && dragActive};
   ${(props) => props.isDragReject && dragReject};
 `;

@@ -13,9 +13,7 @@ const TextContainer = ({ response, setResponse }) => {
         </div>
       ) : (
         <div className="text">
-          <h1>
-            Accessible <br /> images for all.
-          </h1>
+          <h1>Accessible images for all.</h1>
           <p>
             Paste or upload your images to generate smart description and alternative text for your
             images.

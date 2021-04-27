@@ -152,9 +152,11 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
           </div>
         ) : (
           <div className="uploader">
-            <h4>Add your image</h4>
-            <p>Start generating smart descriptions</p>
-            <hr />
+            <div className="header">
+              <h4>Add your image</h4>
+              <p>Start generating smart descriptions</p>
+              <hr />
+            </div>
             <input type="text" value={url} onChange={handleChange} placeholder="Paste image URL" />
             <span>
               <em>or</em>
