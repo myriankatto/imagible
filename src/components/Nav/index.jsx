@@ -37,8 +37,7 @@ const Nav = ({ theme, setTheme }) => {
               target="_blank"
               rel="noreferrer"
             >
-              {' '}
-              GitHub
+              Github
             </a>
           </li>
           <div className="theme_icon">
@@ -82,7 +81,7 @@ const Nav = ({ theme, setTheme }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                GitHub
+                Github
               </a>
             </li>
             <div className="theme_icon">
