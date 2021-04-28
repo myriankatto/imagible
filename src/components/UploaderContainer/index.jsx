@@ -51,21 +51,14 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');
     headers.append('Origin', 'http://imagible.herokuapp.com');
-    
-    api
-      .post(
-        'posts',
-        data,
-        { mode: 'cors', headers: headers },
-        {
-          onUploadProgress: (e) => {
-            const progress = parseInt(Math.round((e.loaded * 100) / e.total));
-            updateFile(uploadedFile.id, {
-              progress,
-            });
-          },
-        }
-      )
+
+    axios({
+      method: 'post',
+      url: process.env.REACT_APP_API_URL + '/posts',
+      data,
+      mode: 'cors',
+      headers: headers,
+    })
       .then((response) => {
         updateFile(uploadedFile.id, {
           uploaded: true,
