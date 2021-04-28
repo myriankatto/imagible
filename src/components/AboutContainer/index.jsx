@@ -6,7 +6,7 @@ const AboutContainer = () => {
       <h1>About Imagible</h1>
       <p>
         <span className="green-word">Imagible</span> is a open source project born to create
-        acessible images for all. This project uses Artificial Intelligence from Microsoft Computer
+        accessible images for all. This project uses Artificial Intelligence from Microsoft Computer
         Vision.
       </p>
 
@@ -19,7 +19,7 @@ const AboutContainer = () => {
         <a href="https://www.ulisboa.pt" target="_blank" rel="noopener noreferrer">
           University of Lisbon
         </a>{' '}
-        and developed with{' '}
+        and developed by{' '}
         <a href="https://www.myriankatto.com" target="_blank" rel="noopener noreferrer">
           Myrian Katto.
         </a>
