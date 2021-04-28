@@ -70,6 +70,7 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
         updateFile(uploadedFile.id, {
           error: true,
         });
+        console.log('errorr!!!')
       });
   };
 
