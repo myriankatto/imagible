@@ -51,7 +51,7 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
       .post(
         'posts',
         data,
-        { mode: 'no-cors' },
+        // { mode: 'no-cors' },
         {
           onUploadProgress: (e) => {
             const progress = parseInt(Math.round((e.loaded * 100) / e.total));
