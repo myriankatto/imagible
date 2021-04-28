@@ -52,6 +52,12 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
         'posts',
         data,
         {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+          },
+        },
+        {
           onUploadProgress: (e) => {
             const progress = parseInt(Math.round((e.loaded * 100) / e.total));
             updateFile(uploadedFile.id, {
