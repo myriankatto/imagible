@@ -43,28 +43,19 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
       })
     );
   };
+
   const processUpload = (uploadedFile) => {
     const data = new FormData();
     data.append('file', uploadedFile.file, uploadedFile.name);
 
-    api
-      .post(
-        'posts',
-        data,
-        {
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-          },
-        },
-        {
-          onUploadProgress: (e) => {
-            const progress = parseInt(Math.round((e.loaded * 100) / e.total));
-            updateFile(uploadedFile.id, {
-              progress,
-            });
-          },
-        }
-      )
+    axios({
+      method: 'post',
+      url: process.env.REACT_APP_API_URL + '/posts',
+      data,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
       .then((response) => {
         updateFile(uploadedFile.id, {
           uploaded: true,
@@ -81,6 +72,7 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
         });
       });
   };
+
   const ImageProcess = (url) => {
     setLoading(true);
 
