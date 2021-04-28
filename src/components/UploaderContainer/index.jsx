@@ -46,11 +46,17 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
   const processUpload = (uploadedFile) => {
     const data = new FormData();
     data.append('file', uploadedFile.file, uploadedFile.name);
+    let headers = new Headers();
 
+    headers.append('Content-Type', 'application/json');
+    headers.append('Accept', 'application/json');
+    headers.append('Origin', 'http://imagible.herokuapp.com');
+    
     api
       .post(
         'posts',
         data,
+        { mode: 'cors', headers: headers },
         {
           onUploadProgress: (e) => {
             const progress = parseInt(Math.round((e.loaded * 100) / e.total));
