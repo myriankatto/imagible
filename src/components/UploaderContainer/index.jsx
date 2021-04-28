@@ -54,7 +54,6 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
         {
           headers: {
             'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json',
           },
         },
         {
