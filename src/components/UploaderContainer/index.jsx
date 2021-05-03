@@ -46,18 +46,11 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
   const processUpload = (uploadedFile) => {
     const data = new FormData();
     data.append('file', uploadedFile.file, uploadedFile.name);
-    let headers = new Headers();
-
-    headers.append('Content-Type', 'application/json');
-    headers.append('Accept', 'application/json');
-    headers.append('Origin', 'http://imagible.herokuapp.com');
 
     axios({
       method: 'post',
       url: process.env.REACT_APP_API_URL + '/posts',
       data,
-      mode: 'cors',
-      headers: headers,
     })
       .then((response) => {
         updateFile(uploadedFile.id, {

@@ -229,6 +229,7 @@ $dark-grey: #26272e;
             justify-content: space-around;
             align-items: center;
             justify-items: center;
+            height: 100%;
             width: 100%;
             .btn-container {
               display: flex;
@@ -237,6 +238,7 @@ $dark-grey: #26272e;
               position: relative;
               width: 100%;
               margin-top: 1em;
+              
               button {
                 border: 1px solid $purple;
                 background: $purple;
@@ -258,7 +260,7 @@ $dark-grey: #26272e;
 
             img {
               width: auto;
-              max-height: 15em;
+              max-height: 14em;
               object-fit: scale-down;
               align-self: center;
               border-radius: 8px;
