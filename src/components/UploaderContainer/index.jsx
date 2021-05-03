@@ -6,7 +6,6 @@ import Result from '../Result';
 import { uniqueId } from 'lodash';
 import filesize from 'filesize';
 import axios from 'axios';
-import api from '../../services/api';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 
@@ -77,6 +76,7 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
     axios({
       method: 'post',
       url: uriBase + '?' + params,
+      // eslint-disable-next-line no-useless-concat
       data: '{"url": ' + '"' + url + '"}',
       headers: {
         'Content-Type': 'application/json',
