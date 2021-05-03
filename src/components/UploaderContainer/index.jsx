@@ -49,7 +49,7 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
 
     axios({
       method: 'post',
-      url: 'https://cors-anywhere.herokuapp.com/' + process.env.REACT_APP_API_URL + '/posts',
+      url: process.env.REACT_APP_API_URL + '/posts',
       data,
     })
       .then((response) => {

@@ -97,12 +97,19 @@ $dark-grey: #26272e;
         .color-title {
           color: var(--theme-purple);
         }
+        ol {
+          margin-left: 1em;
+        }
+        ul {
+          list-style: none;
+        }
         h1 {
           font-size: 4.5em;
           font-weight: 300;
           font-family: 'Georgia', sans-serif;
         }
-        p {
+        p,
+        li {
           font-size: 1.125em;
           margin-top: 1em;
           line-height: 1.5em;
@@ -238,7 +245,7 @@ $dark-grey: #26272e;
               position: relative;
               width: 100%;
               margin-top: 1em;
-              
+
               button {
                 border: 1px solid $purple;
                 background: $purple;
