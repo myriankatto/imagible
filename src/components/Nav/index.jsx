@@ -26,6 +26,11 @@ const Nav = ({ theme, setTheme }) => {
             </Link>
           </li>
           <li>
+            <Link to="/how-it-works" alt="how it works">
+              How it works
+            </Link>
+          </li>
+          <li>
             <Link to="/resources" alt="resources">
               Resources
             </Link>
@@ -67,6 +72,11 @@ const Nav = ({ theme, setTheme }) => {
             <li>
               <Link to="/about" alt="about">
                 About
+              </Link>
+            </li>
+            <li>
+              <Link to="/how-it-works" alt="how it works">
+                How it works
               </Link>
             </li>
             <li>

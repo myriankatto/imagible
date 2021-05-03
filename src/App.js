@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Resources from './pages/Resources';
+import HowItWorks from './pages/HowItWorks';
 import NotFound404 from './pages/NotFound404';
 
 import './styles/styles.scss';
@@ -28,6 +29,10 @@ function App() {
           <Route exact path="/resources">
             <Resources {...props} />
           </Route>
+          <Route exact path="/how-it-works">
+            <HowItWorks {...props} />
+          </Route>
+
           <Route>
             <NotFound404 {...props} />
           </Route>
