@@ -420,10 +420,13 @@ $dark-grey: #26272e;
           .card {
             width: 400px;
             height: 400px;
+
             .uploader {
               display: flex;
               flex-direction: column;
               align-items: center;
+              justify-content: space-around;
+              height: 100%;
               width: 100%;
               .header {
                 display: none;
@@ -637,6 +640,8 @@ $dark-grey: #26272e;
               display: flex;
               flex-direction: column;
               align-items: center;
+              justify-content: space-around;
+              height: 100%;
               width: 100%;
               .header {
                 display: none;
