@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const dragActive = css`
-  border-color: #5d3ca1;
+  border-color: #065B36;
 `;
 
 const dragReject = css`
@@ -19,7 +19,8 @@ export const DropContainer = styled.div.attrs({
   justify-content: center;
   align-items: center;
   padding: 1em;
-  width: 100%;
+  width: 330px;
+  height: 100px;
   text-align: center;
   ${(props) => props.isDragActive && dragActive};
   ${(props) => props.isDragReject && dragReject};
@@ -33,5 +34,5 @@ const messageColors = {
 
 export const UploadMessage = styled.p`
   color: ${(props) => messageColors[props.type || 'default']};
-  padding: 15px 0;
+  padding: 1em 0;
 `;

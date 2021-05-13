@@ -14,12 +14,11 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   // const [allFiles, setAllFiles] = useState([]);
 
   const handleUpload = (files) => {
     setLoading(true);
-
-    console.log(files);
     const uploadedFiles = files.map((file) => ({
       file,
       id: uniqueId(),
@@ -31,6 +30,13 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
       error: false,
       url: null,
     }));
+
+    // eslint-disable-next-line array-callback-return
+    uploadedFiles.map((file) => {
+      if (file.file.size > 4000000) {
+        setError('File size is bigger than 4MB');
+      }
+    });
 
     setUploadedFiles(uploadedFiles);
     setPreview(uploadedFiles[0].preview);
@@ -126,9 +132,14 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
 
       setPreview(uploadedFile.preview);
 
+      if (file.size > 4000000) {
+        setError('File size is bigger than 4MB');
+      }
+
       const data = new FormData();
       data.append('file', uploadedFile.file, uploadedFile.name);
       setLoading(true);
+
       axios({
         method: 'post',
         url: process.env.REACT_APP_API_URL + '/posts',
@@ -154,6 +165,11 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
     },
   };
 
+  const handleTryAgain = () => {
+    setResponse('');
+    setError('');
+  };
+
   return (
     <div className="upload">
       <div className="card">
@@ -163,6 +179,13 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
           <div className="spinner">
             <Spin indicator={<LoadingOutlined />} />
             <span>Processing image...</span>
+          </div>
+        ) : error && !response && !loading ? (
+          <div className="spinner">
+            <p style={{ color: '#a7a6a6' }}>{error}</p>
+            <button className="btn" onClick={handleTryAgain}>
+              Try again
+            </button>
           </div>
         ) : (
           <div className="uploader">
@@ -181,6 +204,16 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
             <div className="uploader-component-mobile">
               <Upload {...props}>
                 <Button>Upload your image</Button>
+                <p
+                  style={{
+                    fontSize: '.8em',
+                    color: '#a7a6a6',
+                    marginTop: '.8em',
+                    textAlign: 'center',
+                  }}
+                >
+                  Image size must be less than 4MB.
+                </p>
               </Upload>
             </div>
             <button className="btn" onClick={handleSubmit}>
