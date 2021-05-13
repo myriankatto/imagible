@@ -155,7 +155,6 @@ $dark-grey: #26272e;
               background: $purple;
               width: 100%;
               color: white;
-              margin-top: 1.5em;
               border-radius: 6px;
               cursor: pointer;
               &:hover {
@@ -197,7 +196,6 @@ $dark-grey: #26272e;
               flex-direction: column;
               align-items: center;
               width: 100%;
-
               h4 {
                 font-family: Georgia, 'Times New Roman', Times, serif;
                 font-weight: 300;
@@ -224,7 +222,6 @@ $dark-grey: #26272e;
               border: none;
               color: #616274;
               padding: 1em 2em;
-              margin-top: 1.5em;
               border-bottom: solid 0.1px $purple;
 
               &:focus {
@@ -242,13 +239,17 @@ $dark-grey: #26272e;
             .color {
               color: $purple;
             }
+            .image_size {
+              font-size: 0.7em;
+              color: #a7a6a6;
+              margin: 1em 0;
+            }
             .btn {
               height: 60px;
               border: 1px solid $purple;
               background: $purple;
               width: 100%;
               color: white;
-              margin-top: 1.5em;
               border-radius: 6px;
               cursor: pointer;
               &:hover {
@@ -499,7 +500,6 @@ $dark-grey: #26272e;
                 background: $purple;
                 width: 100%;
                 color: white;
-                margin-top: 1.5em;
                 border-radius: 6px;
                 cursor: pointer;
                 &:hover {
@@ -719,7 +719,6 @@ $dark-grey: #26272e;
                 background: $purple;
                 width: 100%;
                 color: white;
-                margin-top: 1.5em;
                 border-radius: 6px;
                 cursor: pointer;
                 &:hover {

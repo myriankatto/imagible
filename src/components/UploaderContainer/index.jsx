@@ -182,7 +182,7 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
           </div>
         ) : error && !response && !loading ? (
           <div className="spinner">
-            <p style={{ color: '#a7a6a6' }}>{error}</p>
+            <p style={{ color: '#a7a6a6', marginBottom: '2em' }}>{error}</p>
             <button className="btn" onClick={handleTryAgain}>
               Try again
             </button>
@@ -204,18 +204,9 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
             <div className="uploader-component-mobile">
               <Upload {...props}>
                 <Button>Upload your image</Button>
-                <p
-                  style={{
-                    fontSize: '.8em',
-                    color: '#a7a6a6',
-                    marginTop: '.8em',
-                    textAlign: 'center',
-                  }}
-                >
-                  Image size must be less than 4MB.
-                </p>
               </Upload>
             </div>
+            <span className="image_size">Image size must be less than 4MB.</span>
             <button className="btn" onClick={handleSubmit}>
               Generate description
             </button>

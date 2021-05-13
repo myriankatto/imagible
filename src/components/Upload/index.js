@@ -10,19 +10,13 @@ function Upload({ onUpload }) {
       return (
         <UploadMessage>
           Drop your files here or <span className="color"> upload images.</span>
-          <br />
-          <span style={{ fontSize: '.8em', color: '#a7a6a6' }}>
-            Image size must be less than 4MB.
-          </span>
         </UploadMessage>
       );
     }
 
     if (isDragReject) {
       return (
-        <UploadMessage type="error">
-          Invalid file type! It only accepts .jpg and .png
-        </UploadMessage>
+        <UploadMessage type="error">Invalid file type! It only accepts .jpg and .png</UploadMessage>
       );
     }
 
