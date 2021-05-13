@@ -141,7 +141,6 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
             id: response.data._id,
             url: response.data.url,
           });
-          setLoading(false);
           const urlLink = response.data.url;
           ImageProcess(urlLink);
           handleSubmit();
@@ -151,7 +150,6 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
           updateFile(uploadedFile.id, {
             error: true,
           });
-          setLoading(false);
         });
     },
   };
