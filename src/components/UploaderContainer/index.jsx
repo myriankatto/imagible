@@ -128,7 +128,7 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
 
       const data = new FormData();
       data.append('file', uploadedFile.file, uploadedFile.name);
-
+      setLoading(true);
       axios({
         method: 'post',
         url: process.env.REACT_APP_API_URL + '/posts',
@@ -141,6 +141,7 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
             id: response.data._id,
             url: response.data.url,
           });
+          setLoading(false);
           const urlLink = response.data.url;
           ImageProcess(urlLink);
           handleSubmit();
@@ -150,6 +151,7 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
           updateFile(uploadedFile.id, {
             error: true,
           });
+          setLoading(false);
         });
     },
   };
