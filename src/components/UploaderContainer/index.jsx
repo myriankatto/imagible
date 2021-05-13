@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Upload, Button } from 'antd';
 
-import Upload from '../Upload';
+import UploadComponent from '../Upload';
 // import FileList from './components/FileList';
 import Result from '../Result';
 import { uniqueId } from 'lodash';
@@ -18,6 +19,7 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
   const handleUpload = (files) => {
     setLoading(true);
 
+    console.log(files);
     const uploadedFiles = files.map((file) => ({
       file,
       id: uniqueId(),
@@ -106,30 +108,51 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
     setUrl(e.target.value);
   };
 
-  //to get all the images on the database
-  // useEffect(() => {
-  //   api.get('posts').then((response) => {
-  //     console.log(response.data);
-  //   });
-  //   // setUploadedFiles(response.data.map((file) => ({
-  //   //       id: file._id,
-  //   //       name: file.name,
-  //   //       readableSize: filesize(file.size),
-  //   //       preview: file.url,
-  //   //       uploaded: true,
-  //   //       url: file.url,
-  //   //     })),
-  //   //   );
-  // }, []);
+  const props = {
+    name: 'file',
 
-  // const handleDelete = async (id) => {
-  //   api.delete(`posts/${id}`);
-  //   setUploadedFiles(uploadedFiles.filter((file) => file.id !== id));
-  // };
+    customRequest: async ({ onSuccess, onError, file }) => {
+      const uploadedFile = {
+        file,
+        id: uniqueId(),
+        name: file.name,
+        readableSize: filesize(file.size),
+        preview: URL.createObjectURL(file),
+        progress: 0,
+        uploaded: false,
+        error: false,
+        url: null,
+      };
 
-  // componentWillUnmount() {
-  //   this.state.uploadedFiles.forEach((file) => URL.revokeObjectURL(file.preview));
-  // }
+      setPreview(uploadedFile.preview);
+
+      const data = new FormData();
+      data.append('file', uploadedFile.file, uploadedFile.name);
+
+      axios({
+        method: 'post',
+        url: process.env.REACT_APP_API_URL + '/posts',
+        data,
+      })
+        .then((response) => {
+          onSuccess(response);
+          updateFile(uploadedFile.id, {
+            uploaded: true,
+            id: response.data._id,
+            url: response.data.url,
+          });
+          const urlLink = response.data.url;
+          ImageProcess(urlLink);
+          handleSubmit();
+        })
+        .catch((err) => {
+          onError(err);
+          updateFile(uploadedFile.id, {
+            error: true,
+          });
+        });
+    },
+  };
 
   return (
     <div className="upload">
@@ -152,7 +175,14 @@ const UploaderContainer = ({ response, setResponse, preview, setPreview }) => {
             <span>
               <em>or</em>
             </span>
-            <Upload onUpload={handleUpload} />
+            <div className="uploader-component">
+              <UploadComponent onUpload={handleUpload} />
+            </div>
+            <div className="uploader-component-mobile">
+              <Upload {...props}>
+                <Button>Upload your image</Button>
+              </Upload>
+            </div>
             <button className="btn" onClick={handleSubmit}>
               Generate description
             </button>

@@ -164,6 +164,20 @@ $dark-grey: #26272e;
             flex-direction: column;
             align-items: center;
             width: 100%;
+            .uploader-component-mobile {
+              display: none;
+            }
+            .ant-btn {
+              background: transparent !important;
+              padding: 2em 5em;
+              width: 100%;
+              border: 0.5px dashed #5d3ca1;
+              border-radius: 6px;
+              span {
+                color: $dark-grey;
+              }
+            }
+
             .header {
               display: flex;
               flex-direction: column;
@@ -266,7 +280,7 @@ $dark-grey: #26272e;
             }
 
             img {
-              width: auto;
+              max-width: 20em;
               max-height: 14em;
               object-fit: scale-down;
               align-self: center;
@@ -428,6 +442,13 @@ $dark-grey: #26272e;
               justify-content: space-around;
               height: 100%;
               width: 100%;
+              .uploader-component {
+                display: none;
+              }
+              .uploader-component-mobile {
+                display: inline;
+              }
+
               .header {
                 display: none;
               }
@@ -635,7 +656,6 @@ $dark-grey: #26272e;
             width: 100%;
             height: 400px;
             padding: 3em 2em;
-
             .uploader {
               display: flex;
               flex-direction: column;
@@ -643,6 +663,12 @@ $dark-grey: #26272e;
               justify-content: space-around;
               height: 100%;
               width: 100%;
+              .uploader-component {
+                display: none;
+              }
+              .uploader-component-mobile {
+                display: inline;
+              }
               .header {
                 display: none;
               }
@@ -723,7 +749,7 @@ $dark-grey: #26272e;
 
               img {
                 width: auto;
-                max-height: 15em;
+                max-height: 14em;
                 object-fit: scale-down;
                 align-self: center;
                 border-radius: 8px;
