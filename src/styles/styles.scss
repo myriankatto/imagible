@@ -223,6 +223,7 @@ $dark-grey: #26272e;
               color: #616274;
               padding: 1em 2em;
               border-bottom: solid 0.1px $purple;
+              text-align: center;
 
               &:focus {
                 outline: $purple auto 1px;
@@ -234,7 +235,7 @@ $dark-grey: #26272e;
             }
             span {
               color: #a3a3a3;
-              padding: 0.5em 0;
+              padding: .7em 0;
             }
             .color {
               color: $purple;
@@ -696,7 +697,6 @@ $dark-grey: #26272e;
                 padding: 1em 2em;
                 margin-top: 0em;
                 border-bottom: solid 0.1px $purple;
-
                 &:focus {
                   outline: $purple auto 1px;
                 }
